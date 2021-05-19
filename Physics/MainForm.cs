@@ -31,10 +31,10 @@ namespace Physics
             GenerateNewPic(4);
             Activate();
         }
-        private void randomize()
+        private void randomize(int N)
         {
             ClearPlayField(N);
-
+            CreateMap(N);
             Random rnd = new Random();
             string[] nominals = new string[8] { "2", "4", "8", "16", "32", "64", "128", "256" };
             int countOfFields = rnd.Next(6, N * N - 1);
@@ -87,7 +87,6 @@ namespace Physics
             if (fields == N * N)
                 for (int i = 0; i < N; i++)
                 {
-
                     for (int j = 0; j < N; j++)
                     {
 
@@ -451,10 +450,12 @@ namespace Physics
                     }
                     break;
             }
+
             if (ifPicWasMoved)
             {
                 if (isHard)
                 {
+                    GenerateNewPic(N);
                     GenerateNewPic(N);
                 }
                 else
@@ -484,7 +485,7 @@ namespace Physics
 
         private void сгенерироватьСлучайноеПолеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            randomize();
+            randomize(N);
         }
 
         private void таблицаЛидеровToolStripMenuItem_Click(object sender, EventArgs e)
@@ -518,15 +519,7 @@ namespace Physics
 
         private void помощьИПодсказкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Вы играете в игру под названеим 2048\n" +
-                "Правила:\n" +
-                "1. В каждом раунде появляется плитка номинала «2» (две, если уровень игры - сложный)\n " +
-                "2. Нажатием стрелки Вы можету скинуть все плитки игрового поля в одну из 4 сторон." +
-                "Если при сбрасывании две плитки одного номинала «налетают» одна на другую, то они превращаются в одну, номинал которой равен сумме соединившихся плиток." +
-                "После каждого хода на свободной секции поля появляется новая плитка номиналом «2» или «4». Если при нажатии кнопки местоположение плиток или их номинал не изменится, то ход не совершается.\n" +
-                "3. Если в одной строчке или в одном столбце находится более двух плиток одного номинала, то при сбрасывании они начинают соединяться с той стороны, в которую были направлены.Например, находящиеся в одной строке плитки(4, 4, 4) после хода влево превратятся в(8, 4), а после хода вправо — в(4, 8).Данная обработка неоднозначности позволяет более точно формировать стратегию игры.\n" +
-                "4. За каждое соединение игровые очки увеличиваются на номинал получившейся плитки.\n" +
-                "5. Игра заканчивается поражением, если после очередного хода невозможно совершить действие.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            
         }
 
         private void помощьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -583,7 +576,7 @@ namespace Physics
             map = new int[4, 4];
             labels = new Label[4, 4];
             pics = new PictureBox[4, 4];
-            mapPics = new PictureBox[6, 6];
+            mapPics = new PictureBox[4, 4];
 
             CreateMap(4);
             GenerateNewPic(4);
@@ -594,6 +587,20 @@ namespace Physics
             х4ToolStripMenuItem.Enabled = false;
             this.Width = 265;
             this.Height = 355;
+        }
+
+        private void правилаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Вы играете в игру под названеим 2048\n" +
+                "Правила:\n" +
+                "1. В каждом раунде появляется плитка номинала «2» (две, если уровень игры - сложный)\n " +
+                "2. Нажатием стрелки Вы можету скинуть все плитки игрового поля в одну из 4 сторон." +
+                "Если при сбрасывании две плитки одного номинала «налетают» одна на другую, то они превращаются в одну, номинал которой равен сумме соединившихся плиток." +
+                "После каждого хода на свободной секции поля появляется новая плитка номиналом «2» или «4». Если при нажатии кнопки местоположение плиток или их номинал не изменится, то ход не совершается.\n" +
+                "3. Если в одной строчке или в одном столбце находится более двух плиток одного номинала, то при сбрасывании они начинают соединяться с той стороны, в которую были направлены.Например, находящиеся в одной строке плитки(4, 4, 4) после хода влево превратятся в(8, 4), а после хода вправо — в(4, 8).Данная обработка неоднозначности позволяет более точно формировать стратегию игры.\n" +
+                "4. За каждое соединение игровые очки увеличиваются на номинал получившейся плитки.\n" +
+                "5. Игра заканчивается поражением, если после очередного хода невозможно совершить действие.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+
         }
     }
 }

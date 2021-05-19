@@ -23,14 +23,10 @@ namespace Physics
             this.isHard = isHard;
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string Name = textBox1.Text;
+
             if(!isHard)
                 File.AppendAllText(FILE_PATH, $"{Name}:{score}\n");
             else

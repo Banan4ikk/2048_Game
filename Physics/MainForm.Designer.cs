@@ -92,6 +92,7 @@
             this.правилаToolStripMenuItem.Name = "правилаToolStripMenuItem";
             this.правилаToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.правилаToolStripMenuItem.Text = "Правила";
+            this.правилаToolStripMenuItem.Click += new System.EventHandler(this.правилаToolStripMenuItem_Click);
             // 
             // помощьToolStripMenuItem
             // 
@@ -127,14 +128,14 @@
             // 
             this.простоToolStripMenuItem.Enabled = false;
             this.простоToolStripMenuItem.Name = "простоToolStripMenuItem";
-            this.простоToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.простоToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.простоToolStripMenuItem.Text = "Просто";
             this.простоToolStripMenuItem.Click += new System.EventHandler(this.простоToolStripMenuItem_Click);
             // 
             // сложноToolStripMenuItem
             // 
             this.сложноToolStripMenuItem.Name = "сложноToolStripMenuItem";
-            this.сложноToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.сложноToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сложноToolStripMenuItem.Text = "Сложно";
             this.сложноToolStripMenuItem.Click += new System.EventHandler(this.сложноToolStripMenuItem_Click);
             // 
@@ -161,7 +162,6 @@
             this.х6ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.х6ToolStripMenuItem.Text = "6х6";
             this.х6ToolStripMenuItem.Click += new System.EventHandler(this.х6ToolStripMenuItem_Click);
-<<<<<<< HEAD
             // 
             // бескоенечныйРежимToolStripMenuItem
             // 
@@ -189,8 +189,6 @@
             this.label1.Size = new System.Drawing.Size(100, 29);
             this.label1.TabIndex = 16;
             this.label1.Text = "Score:0";
-=======
->>>>>>> edeae95... 6х6 рабочая версия
             // 
             // MainForm
             // 
